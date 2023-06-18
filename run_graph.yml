@@ -1,0 +1,99 @@
+common:
+    studyName: mutigcn-fixed-graph-PROTEINS
+    algorithm: RANDOM_SEARCH
+    objectValueName: test_acc
+    metrics: [best_val_loss,best_val_acc,test_acc,std,best_val_epoch]
+schedulerConfig:
+    trialNum: 50
+    parallelNum: 20
+parameterConfigs:
+- name: batch_size
+  type: ENUM_INT
+  discreteValues:
+      - 16
+      - 32
+      - 64
+#      - 128
+-   name: dropout
+    type: FLOAT
+    min: 0.001
+    max: 0.8
+-   name: lamda
+    type: FLOAT
+    min: 0.0
+    max: 0.0
+-   name: m_prob
+    type: FLOAT
+    min: 1.0
+    max: 1.0
+-   name: wd_adj
+    type: FLOAT
+    min: 0.0005
+    max: 0.0005
+-   name: weight_decay
+    type: FLOAT
+    min: 0.00005
+    max: 0.2
+-   name: lr_adj
+    type: FLOAT
+    min: 0.00001
+    max: 0.00001
+-   name: adj_loss_coef
+    type: FLOAT
+    min: 0.0
+    max: 0.0
+-   name: theta
+    type: FLOAT
+    min: 0.01
+    max: 0.01
+-   name: K_neigs
+    type: INT
+    min: 1
+    max: 1
+-   name: hidden
+    type: ENUM_INT
+    discreteValues:
+    - 16
+    - 64
+    - 32
+    - 128
+#    - 256
+-   name: mlp_hidden
+    type: ENUM_INT
+    discreteValues:
+        - 16
+#        - 64
+#        - 32
+    #    - 128
+    #    - 256
+-   name: nbaseblocklayer
+    type: ENUM_INT
+    discreteValues:
+    - 0
+    - 1
+    - 2
+    - 4
+#    - 8
+#    - 16
+#    - 32
+#    - 64
+#    - 128
+#    - 256
+-   name: learnable_adj
+    type: ENUM
+    categoricalValues:
+#    - '--attn_adj'
+#    - '--learnable_adj'
+    - ''
+
+workerConfig:
+    runPlatform: SEVEN
+    ifHdfsUpload: false
+    sevenConfig:
+        user: jiyingzhang
+    runCmd: sh main.sh
+    timeOut: 14400
+    configFiles:
+    - main.sh
+notification:
+    ifEmailNotification: False

@@ -1,0 +1,11 @@
+version: 1
+kind: standalone
+jobname: hypergraph
+container:
+    image: docker.oa.com/g_tfplus/ai-drug:tf1.12-deepchem2.1.1-rdkit2018.03-pytorch1.0.1-keras2.2.4-java8-hadoop2.7.5
+    resources:
+        cpu: 44
+        memory: 30G
+    env:
+    - name: A
+      value: "3"

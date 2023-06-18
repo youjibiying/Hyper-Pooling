@@ -1,0 +1,4 @@
+,,,Proteins,proteins
+baseline,seed =0,HGNN-3gcnpool-linear,0.988636(112),0.7232
+,,HGNN,1,
+,,HGNN+hgcnpool ,0.988636(30),

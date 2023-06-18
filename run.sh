@@ -1,0 +1,32 @@
+#!/bin/bash
+## PROTEINS
+python -u train_graph.py --data_path ../data/hgnn \
+                  --dataset PROTEINS \
+                  --save_dir ../model/hgnn/PROTEINS \
+                  --is_probH \
+                  --m_prob 1.0 \
+                  --add_self_loop \
+                  --epochs 300 \
+                  --seed 0 \
+                  --K_neigs 10 \
+                  --type mutigcn \
+                  --hidden 64 \
+                  --mlp_hidden 64 \
+                  --print_freq 20 \
+                  --sampling_percent 1 \
+                  --nhiddenlayer 1 \
+                  --nbaseblocklayer 1 \
+                  --lr 0.01 \
+                  --lamda 0.726597734121 \
+                  --dropout 0.113235564715 \
+                  --wd_adj 0.137298901256 \
+                  --weight_decay 0.0755587618139 \
+                  --gpu 1 \
+                  --theta 0.1 \
+                  --lr_adj 0.0177499013073 \
+                  --adj_loss_coef 0.0 \
+                  --inputlayer gcn \
+                  --outputlayer gcn \
+                  --iters_per_epoch 1 \
+                  --batch_size 16 \
+                  --debug
